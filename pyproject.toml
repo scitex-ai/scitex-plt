@@ -74,6 +74,13 @@ scitex-plt = "scitex_plt"
 [tool.hatch.build.targets.wheel]
 packages = ["src/scitex_plt"]
 
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "smoke: fast subprocess happy-path tests (<60s, runs on every PR)",
+    "e2e: end-to-end workflows against real subsystems (gate with RUN_E2E=1)",
+]
+
 [tool.coverage.run]
 parallel = true
 source = ["scitex_plt"]

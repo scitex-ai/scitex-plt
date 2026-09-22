@@ -14,3 +14,31 @@ audit:
   root-whitelist:
     files:
       - codecov.yml
+
+  # PS-231 (workflow-duplication) -- the rule's own BLOCKER cases, read out
+  # of the files on 2026-09-22 rather than assumed. BLOCKER 1 does NOT apply
+  # and is recorded so nobody re-derives it: measured the same day,
+  #   gh api repos/scitex-ai/scitex-plt/branches/develop/protection
+  #   gh api repos/scitex-ai/scitex-plt/branches/main/protection
+  # require only `pytest-matrix / ...` contexts on BOTH branches — no
+  # docs/rtd context is required, so a context rename here blocks nothing.
+  # The blocker is CAPABILITY, not protection (same shape as the
+  # scitex-genai exemption):
+  exemptions:
+    PS-231:
+      - path: .github/workflows/rtd-sphinx-build-on-ubuntu-latest.yml
+        line: 0
+        reason: >-
+          This leaf workflow does two things the org reusable does not.
+          (1) It VENDORS its build output back into the package tree: the
+          "Refresh src/scitex_plt/_sphinx_html/" and "Commit refreshed HTML"
+          steps rewrite and commit `src/scitex_plt/_sphinx_html` on a develop
+          push. That bundle ships INSIDE THE WHEEL; the org reusable
+          (scitex-ai/.github .github/workflows/rtd-sphinx-build.yml) is
+          BUILD-ONLY -- it builds into `$CONFDIR/_build/html` and commits
+          nothing. A bare `uses:` would keep building, stop publishing, and
+          hand users frozen documentation under a green check. (2) It runs
+          `sphinx-build -W` on pull_request only, so a docs warning fails a
+          PR; the org body has no `-W` and that gate would be silently lost.
+          Revisit when the org reusable grows a publish/vendor mode and a
+          `-W` PR gate.
