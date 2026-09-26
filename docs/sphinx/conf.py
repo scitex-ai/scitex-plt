@@ -42,7 +42,15 @@ autodoc_default_options = {
 }
 
 # Mock optional / heavy deps so autodoc never fails on missing imports.
-autodoc_mock_imports = ['pandas', 'figrecipe', 'matplotlib', 'seaborn', 'numpy', 'PIL']
+#
+# figrecipe is deliberately NOT mocked: scitex-plt is a pure sys.modules
+# alias (`scitex_plt is figrecipe`), so `.. automodule:: scitex_plt`
+# documents figrecipe's real API. figrecipe is a hard runtime dependency
+# (pyproject `figrecipe>=0.24.0`) and is always installed in the docs env
+# (`pip install -e ".[docs]"`), so importing it succeeds. Mocking it made
+# `scitex_plt` resolve to a _MockObject, tripping autodoc's
+# "A mocked object is detected" warning and failing the `-W` PR build.
+autodoc_mock_imports = ["pandas", "matplotlib", "seaborn", "numpy", "PIL"]
 
 autosummary_generate = True
 
@@ -85,7 +93,7 @@ html_short_title = project
 
 html_context = {
     "display_github": True,
-    "github_user": "ywatanabe1989",
+    "github_user": "scitex-ai",
     "github_repo": "scitex-plt",
     "github_version": "develop",
     "conf_py_path": "/docs/sphinx/",

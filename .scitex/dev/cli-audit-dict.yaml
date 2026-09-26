@@ -1,0 +1,22 @@
+# Project-local CLI audit dictionary for scitex-plt.
+# Extends the bundled scitex-dev catalog with package-specific tokens.
+# See: scitex-dev/_skills/general/03_interface_02_cli/07_audit-cli.md
+#
+# scitex-plt is a pure ALIAS for figrecipe (console script -> figrecipe._cli:main),
+# so this mirrors figrecipe's whitelist: the CLI grammar is identical.
+
+intransitive_verbs:
+  # audit-cli §1 escape hatch (same mechanism `next` uses): Moby's
+  # corpus classifies each of these as BOTH a noun and a verb, so the
+  # leaf-noun check flags them as multi-class homonyms. In scitex-plt's
+  # (= figrecipe's) CLI grammar they are unambiguously verbs — the
+  # imperative the user types to act on a recipe / figure / image:
+  #   scitex-plt plot <spec>      — render a figure from a plot spec
+  #   scitex-plt crop <image>     — crop whitespace from an image
+  #   scitex-plt extract <recipe> — extract the plotted data to CSV
+  #   scitex-plt info <recipe>    — print recipe metadata
+  # Declaring them intransitive verbs records that intent and clears §1.
+  - plot
+  - crop
+  - extract
+  - info

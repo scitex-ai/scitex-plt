@@ -14,10 +14,13 @@ docs/sphinx/_build/
 *.spartan-bak
 
 # .scitex/ holds local runtime state (gitignored) except the dev/
-# config.yaml whitelist, which MUST travel with the repo so the audit
-# corpus is reproducible from a clean clone. See
+# config.yaml + cli-audit-dict.yaml whitelists, which MUST travel with
+# the repo so the audit corpus is reproducible from a clean clone. See
 # _skills/general/01_ecosystem_06_local-state-directories.md.
 .scitex/*
 !.scitex/dev/
 .scitex/dev/*
 !.scitex/dev/config.yaml
+!.scitex/dev/cli-audit-dict.yaml
+/.worktrees/
+.venv/

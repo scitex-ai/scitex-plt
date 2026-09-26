@@ -18,6 +18,6 @@ Development
 
 .. code-block:: bash
 
-   git clone https://github.com/ywatanabe1989/scitex-plt.git
+   git clone https://github.com/scitex-ai/scitex-plt.git
    cd scitex-plt
    pip install -e ".[all]"

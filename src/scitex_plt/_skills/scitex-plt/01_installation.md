@@ -27,7 +27,7 @@ scitex-plt --version
 ## Editable install (development)
 
 ```bash
-git clone https://github.com/ywatanabe1989/scitex-plt
+git clone https://github.com/scitex-ai/scitex-plt
 cd scitex-plt
 pip install -e '.[dev]'
 ```

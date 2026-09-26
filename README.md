@@ -16,13 +16,13 @@
 <p align="center">
   <a href="https://pypi.org/project/scitex-plt/"><img src="https://img.shields.io/pypi/v/scitex-plt?label=pypi" alt="pypi"></a>
   <a href="https://pypi.org/project/scitex-plt/"><img src="https://img.shields.io/pypi/pyversions/scitex-plt?label=python" alt="python"></a>
-  <a href="https://github.com/ywatanabe1989/scitex-plt/actions/workflows/rtd-sphinx-build-on-ubuntu-latest.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-plt/rtd-sphinx-build-on-ubuntu-latest.yml?branch=develop&label=docs" alt="docs"></a>
+  <a href="https://github.com/scitex-ai/scitex-plt/actions/workflows/rtd-sphinx-build-on-ubuntu-latest.yml"><img src="https://img.shields.io/github/actions/workflow/status/scitex-ai/scitex-plt/rtd-sphinx-build-on-ubuntu-latest.yml?branch=develop&label=docs" alt="docs"></a>
 </p>
 <p align="center">
-  <a href="https://github.com/ywatanabe1989/scitex-plt/actions/workflows/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-plt/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml?branch=develop&label=tests" alt="tests"></a>
-  <a href="https://github.com/ywatanabe1989/scitex-plt/actions/workflows/import-smoke-on-ubuntu-py3-12.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-plt/import-smoke-on-ubuntu-py3-12.yml?branch=develop&label=install-check" alt="install-check"></a>
-  <a href="https://github.com/ywatanabe1989/scitex-plt/actions/workflows/newb.yml"><img src="https://img.shields.io/github/actions/workflow/status/ywatanabe1989/scitex-plt/newb.yml?branch=develop&label=quality" alt="quality"></a>
-  <a href="https://codecov.io/gh/ywatanabe1989/scitex-plt"><img src="https://img.shields.io/codecov/c/github/ywatanabe1989/scitex-plt/develop?label=cov" alt="cov"></a>
+  <a href="https://github.com/scitex-ai/scitex-plt/actions/workflows/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml"><img src="https://img.shields.io/github/actions/workflow/status/scitex-ai/scitex-plt/pytest-matrix-on-ubuntu-py3-11-3-12-3-13.yml?branch=develop&label=tests" alt="tests"></a>
+  <a href="https://github.com/scitex-ai/scitex-plt/actions/workflows/import-smoke-on-ubuntu-py3-12.yml"><img src="https://img.shields.io/github/actions/workflow/status/scitex-ai/scitex-plt/import-smoke-on-ubuntu-py3-12.yml?branch=develop&label=install-check" alt="install-check"></a>
+  <a href="https://github.com/scitex-ai/scitex-plt/actions/workflows/newb.yml"><img src="https://img.shields.io/github/actions/workflow/status/scitex-ai/scitex-plt/newb.yml?branch=develop&label=quality" alt="quality"></a>
+  <a href="https://codecov.io/gh/scitex-ai/scitex-plt"><img src="https://img.shields.io/codecov/c/github/scitex-ai/scitex-plt/develop?label=cov" alt="cov"></a>
 </p>
 <!-- scitex-badges:end -->
 

@@ -4,6 +4,13 @@
 # clone. See _skills/general/01_ecosystem_06_local-state-directories.md.
 
 audit:
+  # Package-type capability knob (scitex-dev auditor). scitex-plt is a pure
+  # ALIAS for figrecipe (console script -> figrecipe._cli:main) with no
+  # first-party MCP surface, so the §6 MCP <-> Python-API parity check does
+  # not apply. The auditor skips it with a visible "declared capability"
+  # notice rather than firing a false positive.
+  capabilities:
+    - no-mcp
   root-whitelist:
     files:
       - codecov.yml

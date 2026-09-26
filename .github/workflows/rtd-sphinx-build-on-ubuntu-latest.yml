@@ -1,16 +1,41 @@
 name: docs
 
+# PS-231 — this file used to re-implement the org's `rtd-sphinx-build`
+# reusable instead of calling it. It now calls it, and keeps ONLY the two
+# behaviours the reusable does not provide (see the `bundle` job).
+#
+# WHY BOTH JOBS EXIST, rather than one or the other. The reusable was read
+# before this was written, not assumed to be a superset: it builds
+# `<confdir>` to `<confdir>/_build/html` and stops. It has no `-W` input and
+# no notion of the in-wheel docs bundle. Deleting the local job to reach a
+# clean audit would have silently dropped both — a green audit bought with a
+# stale packaged bundle and warnings that no longer fail PRs.
+
 on:
   push:
     branches: [main, develop]
   pull_request:
 
 jobs:
+  # The shared gate: the org's workflow, called not copied.
   sphinx:
     # Skip when HEAD is the bot's own previous docs auto-commit — breaks
     # the infinite loop without using `[skip ci]`, which would also
     # suppress the tag-push and release workflows when the auto-commit
     # is the most recent commit on develop at release time.
+    if: "!contains(github.event.head_commit.message, 'docs(sphinx_html): refresh from CI build')"
+    uses: scitex-ai/.github/.github/workflows/rtd-sphinx-build.yml@main
+
+  # Genuinely local, and genuinely not a copy of the reusable:
+  #   1. `-W` on pull_request, so a NEW sphinx warning fails the PR. The
+  #      reusable builds without it, so this is the only thing keeping
+  #      warnings from accumulating unnoticed.
+  #   2. Refreshing `src/scitex_plt/_sphinx_html/` — the docs bundle that
+  #      ships INSIDE the wheel. Nothing in the reusable knows that
+  #      directory exists; without this the packaged copy drifts from the
+  #      source and nobody finds out until a reader opens stale HTML.
+  bundle:
+    needs: sphinx
     if: "!contains(github.event.head_commit.message, 'docs(sphinx_html): refresh from CI build')"
     runs-on: ubuntu-latest
     permissions:

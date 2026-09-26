@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "scitex-plt"
-version = "0.24.6"
+version = "0.24.9"
 description = "SciTeX plotting module (alias for figrecipe)"
 readme = "README.md"
 license = "AGPL-3.0-only"
@@ -34,7 +34,7 @@ classifiers = [
 ]
 dependencies = [
     "pandas",
-    "figrecipe>=0.24.0",
+    "figrecipe>=0.32.1",
 ]
 
 
@@ -63,9 +63,9 @@ scitex-plt = "figrecipe._cli:main"
 scitex-plt = "scitex_plt"
 
 [project.urls]
-Homepage = "https://github.com/ywatanabe1989/scitex-plt"
+Homepage = "https://github.com/scitex-ai/scitex-plt"
 Documentation = "https://scitex-plt.readthedocs.io"
-Repository = "https://github.com/ywatanabe1989/scitex-plt.git"
+Repository = "https://github.com/scitex-ai/scitex-plt.git"
 Issues = "https://github.com/ywatanabe1989/figrecipe/issues"
 
 [project.entry-points."scitex_dev.skills"]
