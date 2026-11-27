@@ -7,6 +7,9 @@ versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Subprocess coverage is now configured declaratively via coverage.py's `patch = ["subprocess"]` in `pyproject.toml`; `tests/conftest.py` no longer installs a `.pth` hook into site-packages or overwrites caller-owned `COVERAGE_PROCESS_START` / `COVERAGE_FILE`.
+
 ## [0.24.9]
 
 ### Fixed
